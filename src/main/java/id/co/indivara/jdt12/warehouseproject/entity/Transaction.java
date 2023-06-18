@@ -1,7 +1,7 @@
 package id.co.indivara.jdt12.warehouseproject.entity;
 
 public class Transaction {
-    private int idTransaction;
+    private Integer idTransaction;
     private String transType;
-    private int idGoods;
+    private Integer idGoods;
 }
