@@ -18,6 +18,8 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_store")
     private Integer idStore;
+    @Column(name = "store_code")
+    private String storeCode;
     @Column(name = "name_store")
     private String nameStore;
     @Column(name = "address_store")
@@ -26,4 +28,5 @@ public class Store {
     private String emailStore;
     @Column(name = "phone_number_store")
     private String phoneNumberStore;
+
 }

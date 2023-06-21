@@ -2,7 +2,6 @@ package id.co.indivara.jdt12.warehouseproject.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import id.co.indivara.jdt12.warehouseproject.entity.master.Good;
-import id.co.indivara.jdt12.warehouseproject.entity.master.Store;
 import id.co.indivara.jdt12.warehouseproject.entity.master.Warehouse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,13 +13,13 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "delivery")
+@Table(name = "transfer")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WarehouseToStore {
+public class WarehouseToWarehouse {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wts_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wtw_generator")
     @Column(name = "transId")
     private Integer transId;
 
@@ -30,14 +29,14 @@ public class WarehouseToStore {
     private Warehouse warehouseSrc;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_dst")
+    @JoinColumn(name = "warehouse_dst")
     @JsonIgnore
-    private Store storeDst;
+    private Warehouse warehouseDst;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_goods")
     @JsonIgnore
-    private Good idGoods;
+    private Good idGood;
 
     @Column(name = "amounts_goods")
     private Integer amountsGoods;
@@ -49,5 +48,4 @@ public class WarehouseToStore {
     public void prePersist(){
         this.createdAt = LocalDateTime.now();
     }
-
 }

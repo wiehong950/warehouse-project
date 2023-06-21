@@ -19,9 +19,9 @@ public class Good {
     @Column(name = "id_goods")
     private Integer idGood;
 
-    @Column(name = "name_good")
+    @Column(name = "name_goods")
     private String nameGood;
 
-    @Column(name = "desc_good")
+    @Column(name = "desc_goods")
     private String descGood;
 }

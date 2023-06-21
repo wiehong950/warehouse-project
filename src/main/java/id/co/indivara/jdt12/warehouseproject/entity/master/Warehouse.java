@@ -24,6 +24,6 @@ public class Warehouse {
     private String addressWarehouse;
     @Column(name = "phone_number_warehouse")
     private String phoneNumberWarehouse;
-    @Column(name = "stock_capacity_warehouse")
-    private String stockCapacityWarehouse;
+    @Column(name = "warehouse_code")
+    private String warehouseCode;
 }
