@@ -22,7 +22,7 @@ public class WarehouseToStore {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wts_generator")
     @Column(name = "transId")
-    private Integer transId;
+    private Long transId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "warehouse_src")

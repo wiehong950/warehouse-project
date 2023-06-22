@@ -17,7 +17,7 @@ public class Good {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_goods")
-    private Integer idGood;
+    private Long idGood;
 
     @Column(name = "name_goods")
     private String nameGood;

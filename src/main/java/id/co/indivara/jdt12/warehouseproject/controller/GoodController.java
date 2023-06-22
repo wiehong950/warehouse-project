@@ -15,7 +15,7 @@ public class GoodController {
     private GoodRepository goodRepository;
 
     // create Good
-    @GetMapping("/create")
+    @PostMapping("/create")
     public Good createGood(@RequestBody Good good){
         return goodRepository.save(good);
     }
@@ -32,7 +32,7 @@ public class GoodController {
     }
 
     @DeleteMapping("/remove")
-    public void deleteGoodById(@RequestParam Integer id){
+    public void deleteGoodById(@RequestParam Long id){
         goodRepository.deleteById(id);
     }
 }

@@ -20,7 +20,7 @@ public class StoreInventory {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inventory_store_generator")
     @Column(name = "id_inventory")
-    private Integer idInventory;
+    private Long idInventory;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_goods")

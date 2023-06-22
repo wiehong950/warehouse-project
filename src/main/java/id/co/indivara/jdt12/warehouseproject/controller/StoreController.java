@@ -16,7 +16,7 @@ public class StoreController {
     private StoreRepository storeRepository;
 
     // create store
-    @GetMapping("/create")
+    @PostMapping("/create")
     public Store createStore(@RequestBody Store store){
         return storeRepository.save(store);
     }
@@ -33,7 +33,7 @@ public class StoreController {
     }
 
     @DeleteMapping("/remove")
-    public void deleteStore(@RequestParam Integer id){
+    public void deleteStore(@RequestParam Long id){
         storeRepository.deleteById(id);
     }
 }

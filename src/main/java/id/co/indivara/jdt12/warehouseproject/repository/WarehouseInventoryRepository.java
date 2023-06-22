@@ -9,7 +9,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
-public interface WarehouseInventoryRepository extends JpaRepository<WarehouseInventory, Integer> {
+public interface WarehouseInventoryRepository extends JpaRepository<WarehouseInventory, Long> {
     WarehouseInventory findByIdGoodAndIdWarehouse(Good idGood, Warehouse idWarehouse);
     List<WarehouseInventory> findByIdGood(Good idGood);
+    List<WarehouseInventory> findByIdWarehouse(Warehouse warehouse);
 }

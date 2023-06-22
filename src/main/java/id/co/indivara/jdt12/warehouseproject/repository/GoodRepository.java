@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import javax.transaction.Transactional;
 
 @Transactional
-public interface GoodRepository extends JpaRepository<Good, Integer> {
+public interface GoodRepository extends JpaRepository<Good, Long> {
 }

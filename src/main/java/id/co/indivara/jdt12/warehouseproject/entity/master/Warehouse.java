@@ -17,13 +17,17 @@ public class Warehouse {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_warehouse")
-    private Integer idWarehouse;
+    private Long idWarehouse;
+
     @Column(name = "name_warehouse")
     private String nameWarehouse;
+
     @Column(name = "address_warehouse")
     private String addressWarehouse;
+
     @Column(name = "phone_number_warehouse")
     private String phoneNumberWarehouse;
+
     @Column(name = "warehouse_code")
     private String warehouseCode;
 }

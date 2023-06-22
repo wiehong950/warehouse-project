@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import javax.transaction.Transactional;
 
 @Transactional
-public interface WarehouseToStoreRepository extends JpaRepository<WarehouseToStore, Integer> {
+public interface WarehouseToStoreRepository extends JpaRepository<WarehouseToStore, Long> {
 }

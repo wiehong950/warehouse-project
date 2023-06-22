@@ -21,7 +21,7 @@ public class WarehouseToWarehouse {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wtw_generator")
     @Column(name = "transId")
-    private Integer transId;
+    private Long transId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "warehouse_src")

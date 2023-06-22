@@ -15,7 +15,7 @@ public class WarehouseController {
     private WarehouseRepository warehouseRepository;
 
     // create warehouse
-    @GetMapping("/create")
+    @PostMapping("/create")
     public Warehouse createWarehouse(@RequestBody Warehouse warehouse) {
         return warehouseRepository.save(warehouse);
     }
@@ -34,7 +34,7 @@ public class WarehouseController {
 
     // delete warehouse by id
     @DeleteMapping("/remove")
-    public void deleteWarehouse(@RequestParam Integer id){
+    public void deleteWarehouse(@RequestParam Long id){
         warehouseRepository.deleteById(id);
     }
 }

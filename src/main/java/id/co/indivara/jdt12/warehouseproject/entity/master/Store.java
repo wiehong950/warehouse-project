@@ -17,15 +17,20 @@ public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_store")
-    private Integer idStore;
+    private Long idStore;
+
     @Column(name = "store_code")
     private String storeCode;
+
     @Column(name = "name_store")
     private String nameStore;
+
     @Column(name = "address_store")
     private String addressStore;
+
     @Column(name = "email_store")
     private String emailStore;
+
     @Column(name = "phone_number_store")
     private String phoneNumberStore;
 
