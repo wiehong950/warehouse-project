@@ -23,10 +23,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-@Import(SpringSecurityConfig.class)
 public class SupplyTowarehouseTest {
 
     @Autowired
