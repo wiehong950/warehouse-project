@@ -27,7 +27,7 @@ public class Transaction {
             parameters = {
                     @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
                     @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "trx"),
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%02d")
+                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d")
             }
     )
     private String idTransaction;
@@ -36,6 +36,12 @@ public class Transaction {
     @JoinColumn(name = "id_goods")
     @JsonIgnore
     private Good idGood;
+
+    @Column(name = "amounts_goods")
+    private Integer amountGoods;
+
+    @Column(name = "id_by_trans_type")
+    private String idByTransType;
 
     @Column(name = "trans_type")
     private String transType;

@@ -1,9 +1,11 @@
 package id.co.indivara.jdt12.warehouseproject.entity.master;
 
+import id.co.indivara.jdt12.warehouseproject.sequence.StringPrefixedSequenceIdGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -19,9 +21,6 @@ public class Store {
     @Column(name = "id_store")
     private Long idStore;
 
-    @Column(name = "store_code")
-    private String storeCode;
-
     @Column(name = "name_store")
     private String nameStore;
 
@@ -33,5 +32,18 @@ public class Store {
 
     @Column(name = "phone_number_store")
     private String phoneNumberStore;
+
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "store_generator")
+    @GenericGenerator(
+            name = "store_generator",
+            strategy = "id.co.indivara.jdt12.warehouseproject.sequence.StringPrefixedSequenceIdGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "st"),
+                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d")
+            }
+    )
+    @Column(name = "store_code", unique = true)
+    private String storeCode;
 
 }

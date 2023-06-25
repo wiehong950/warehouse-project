@@ -1,15 +1,20 @@
 package id.co.indivara.jdt12.warehouseproject.service;
 
+import id.co.indivara.jdt12.warehouseproject.Enum.EnumTransaction;
+import id.co.indivara.jdt12.warehouseproject.entity.Transaction;
 import id.co.indivara.jdt12.warehouseproject.entity.WarehouseInventory;
 import id.co.indivara.jdt12.warehouseproject.entity.WarehouseToWarehouse;
 import id.co.indivara.jdt12.warehouseproject.entity.master.Good;
 import id.co.indivara.jdt12.warehouseproject.entity.master.Warehouse;
+import id.co.indivara.jdt12.warehouseproject.repository.TransactionRepository;
 import id.co.indivara.jdt12.warehouseproject.repository.WarehouseInventoryRepository;
 import id.co.indivara.jdt12.warehouseproject.repository.WarehouseToWarehouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class WarehouseToWarehouseService {
@@ -18,6 +23,9 @@ public class WarehouseToWarehouseService {
 
     @Autowired
     private WarehouseInventoryRepository warehouseInventoryRepository;
+
+    @Autowired
+    private TransactionRepository transactionRepository;
 
     public ResponseEntity<WarehouseToWarehouse> warehouseToWarehouseResponseEntity(
             Good goodId,
@@ -56,6 +64,19 @@ public class WarehouseToWarehouseService {
 
                 warehouseToWarehouseRepository.save(warehouseToWarehouse1);
 
+                // simpan ke transaksi
+                // buat object transaksi
+                Transaction transaction = new Transaction();
+
+                // masukkan data atau set data ke object transaksi
+                transaction.setIdGood(goodId);
+                transaction.setAmountGoods(warehouseToWarehouse1.getAmountsGoods());
+                transaction.setIdByTransType(warehouseToWarehouse1.getTransId());
+                transaction.setTransType(EnumTransaction.WAREHOUSETOWAREHOUSE.getText());
+
+                // simpan object ke database
+                transactionRepository.save(transaction);
+
                 return new ResponseEntity<>(warehouseToWarehouse1, HttpStatus.OK);
             }
         } catch (Exception e) {
@@ -63,5 +84,10 @@ public class WarehouseToWarehouseService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    public ResponseEntity<List<WarehouseToWarehouse>> viewTransfer(){
+        List<WarehouseToWarehouse> viewTransfer = warehouseToWarehouseRepository.findAll();
+        return new ResponseEntity<>(viewTransfer, HttpStatus.OK);
     }
 }

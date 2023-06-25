@@ -6,7 +6,6 @@ import id.co.indivara.jdt12.warehouseproject.entity.master.Store;
 import id.co.indivara.jdt12.warehouseproject.repository.StoreInventoryRepository;
 import id.co.indivara.jdt12.warehouseproject.service.StoreInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

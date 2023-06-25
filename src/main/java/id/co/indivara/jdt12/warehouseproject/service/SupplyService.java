@@ -9,10 +9,13 @@ import id.co.indivara.jdt12.warehouseproject.entity.master.Warehouse;
 import id.co.indivara.jdt12.warehouseproject.repository.SupplyToWarehouseRepository;
 import id.co.indivara.jdt12.warehouseproject.repository.TransactionRepository;
 import id.co.indivara.jdt12.warehouseproject.repository.WarehouseInventoryRepository;
+import id.co.indivara.jdt12.warehouseproject.repository.WarehouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SupplyService {
@@ -21,6 +24,9 @@ public class SupplyService {
 
     @Autowired
     private WarehouseInventoryRepository warehouseInventoryRepository;
+
+    @Autowired
+    private WarehouseRepository warehouseRepository;
 
     @Autowired
     private TransactionRepository transactionRepository;
@@ -66,10 +72,17 @@ public class SupplyService {
 
         // masukkan data atau set data ke object transaksi
         transaction.setIdGood(goodId);
+        transaction.setAmountGoods(supplyToWarehouse1.getAmountsGoods());
+        transaction.setIdByTransType(supplyToWarehouse1.getTransId());
         transaction.setTransType(EnumTransaction.SUPPLYTOWAREHOUSE.getText());
 
         // simpan object ke database
         transactionRepository.save(transaction);
         return new ResponseEntity<>(supplyToWarehouse1, HttpStatus.OK);
+    }
+
+    public ResponseEntity<List<SupplyToWarehouse>> viewSupply(){
+        List<SupplyToWarehouse> viewSupply = supplyToWarehouseRepository.findAll();
+        return new ResponseEntity<>(viewSupply, HttpStatus.OK);
     }
 }
