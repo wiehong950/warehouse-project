@@ -33,19 +33,13 @@ public class GoodControllerTest {
     @Autowired
     private GoodController goodController;
 
-//    @Test
-//    public void createGoodTest() throws Exception{
-//        Good good = new Good(
-//                40L,
-//                "Ini Nama Barang",
-//                "Ini Deskripsi Barang",
-//                "g00020"
-//        );
-//
-//        mockMvc.perform(MockMvcRequestBuilders.post("/good/create"))
-////                .with(SecurityMockMvcRequestPostProcessors.user("user")))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-//        ;
-//    }
+    @Test
+    public void createGoodTest() throws Exception{
+        Good good = new Good(
+                40L,
+                "Ini Nama Barang",
+                "Ini Deskripsi Barang",
+                "g00020"
+        );
+    }
 }

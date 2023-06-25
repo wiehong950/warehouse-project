@@ -34,62 +34,28 @@ public class SupplyTowarehouseTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private SupplyController supplyController;
+    @Test
+    public void viewAllSupplyTest() throws Exception{
+        Good good = new Good();
+        good.setIdGood(3L);
 
-    @Autowired
-    private SupplyService supplyService;
+        Warehouse warehouse = new Warehouse();
+        warehouse.setIdWarehouse(1L);
 
-//    @Test
-//    public void viewAllSupplyTest() throws Exception{
-//        Good good = new Good();
-//        good.setIdGood(3L);
-//
-//        Warehouse warehouse = new Warehouse();
-//        warehouse.setIdWarehouse(1L);
-//
-//        SupplyToWarehouse supplyToWarehouse = new SupplyToWarehouse();
-//        supplyToWarehouse.setAmountsGoods(100);
-//        mockMvc.perform(MockMvcRequestBuilders
-//                .post("/supply/create/{goodId}@{warehouseDst}",good.getIdGood(),warehouse.getIdWarehouse())
-//                        .accept(MediaType.APPLICATION_JSON)
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .with(SecurityMockMvcRequestPostProcessors.user("admin").password("admin123").roles("ADMIN"))
-//                        .content(objectMapper.writeValueAsString(good.getIdGood()))
-//                        .content(objectMapper.writeValueAsString(warehouse.getIdWarehouse()))
-//                        .content(objectMapper.writeValueAsString(supplyToWarehouse))
-//                )
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.transId").exists())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.amountsGoods").exists())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").exists())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.amountsGoods").exists())
-//        ;
-//    }
-    // isi object dari master data:
-    // isi object good
-//    Good good = new Good(
-//            1L,
-//            "Ini Nama Barang",
-//            "Ini Deskripsi Barang",
-//            "g00001"
-//    );
-
-    // isi object warehouse
-//    Warehouse warehouse = new Warehouse(
-//            1L,
-//            "Ini Nama Warehouse",
-//            "Ini Alamat Warehouse",
-//            "01801802802",
-//            "wh00001"
-//    );
-
-//     buat satu object untuk supply to warehouse yang ada isinya
-
-//    @Test
-//    public void testViewSupplyAll() throws Exception {
-//        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/supply/all"))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andReturn();
-//    }
+        SupplyToWarehouse supplyToWarehouse = new SupplyToWarehouse();
+        supplyToWarehouse.setAmountsGoods(100);
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/supply/create/{goodId}@{warehouseDst}",good.getIdGood(),warehouse.getIdWarehouse())
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .with(SecurityMockMvcRequestPostProcessors.user("admin").password("admin123").roles("ADMIN"))
+                        .content(objectMapper.writeValueAsString(good.getIdGood()))
+                        .content(objectMapper.writeValueAsString(warehouse.getIdWarehouse()))
+                        .content(objectMapper.writeValueAsString(supplyToWarehouse)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.transId").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.amountsGoods").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").exists())
+        ;
+    }
 }
