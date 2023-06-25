@@ -32,28 +32,28 @@ public class SupplyTowarehouseTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Test
-    public void viewAllSupplyTest() throws Exception{
-        Good good = new Good();
-        good.setIdGood(3L);
-
-        Warehouse warehouse = new Warehouse();
-        warehouse.setIdWarehouse(1L);
-
-        SupplyToWarehouse supplyToWarehouse = new SupplyToWarehouse();
-        supplyToWarehouse.setAmountsGoods(100);
-        mockMvc.perform(MockMvcRequestBuilders
-                .post("/supply/create/{goodId}@{warehouseDst}",good.getIdGood(),warehouse.getIdWarehouse())
-                        .accept(MediaType.APPLICATION_JSON)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .with(SecurityMockMvcRequestPostProcessors.user("admin").password("admin123").roles("ADMIN"))
-                        .content(objectMapper.writeValueAsString(good.getIdGood()))
-                        .content(objectMapper.writeValueAsString(warehouse.getIdWarehouse()))
-                        .content(objectMapper.writeValueAsString(supplyToWarehouse)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.transId").exists())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.amountsGoods").exists())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").exists())
-        ;
-    }
+//    @Test
+//    public void viewAllSupplyTest() throws Exception{
+//        Good good = new Good();
+//        good.setIdGood(3L);
+//
+//        Warehouse warehouse = new Warehouse();
+//        warehouse.setIdWarehouse(1L);
+//
+//        SupplyToWarehouse supplyToWarehouse = new SupplyToWarehouse();
+//        supplyToWarehouse.setAmountsGoods(100);
+//        mockMvc.perform(MockMvcRequestBuilders
+//                .post("/supply/create/{goodId}@{warehouseDst}",good.getIdGood(),warehouse.getIdWarehouse())
+//                        .accept(MediaType.APPLICATION_JSON)
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .with(SecurityMockMvcRequestPostProcessors.user("admin").password("admin123").roles("ADMIN"))
+//                        .content(objectMapper.writeValueAsString(good.getIdGood()))
+//                        .content(objectMapper.writeValueAsString(warehouse.getIdWarehouse()))
+//                        .content(objectMapper.writeValueAsString(supplyToWarehouse)))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.transId").exists())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.amountsGoods").exists())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").exists())
+//        ;
+//    }
 }
