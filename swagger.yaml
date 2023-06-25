@@ -1,0 +1,598 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Warehouse Project JDT12
+  contact: {}
+host: localhost:8080
+basePath: /
+securityDefinitions:
+  basic:
+    type: basic
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /good/create:
+    post:
+      summary: Create
+      tags:
+      - Goods
+      operationId: Create
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /good/viewall:
+    get:
+      summary: View All
+      tags:
+      - Goods
+      operationId: ViewAll
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /good/update/1:
+    put:
+      summary: UpdateById
+      tags:
+      - Goods
+      operationId: UpdateById
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateByIdRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /good/remove/11:
+    delete:
+      summary: DeleteById
+      tags:
+      - Goods
+      operationId: DeleteById
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /warehouse/create:
+    post:
+      summary: Create
+      tags:
+      - Warehouses
+      operationId: PostCreate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateRequest1'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /warehouse/viewall:
+    get:
+      summary: View All
+      tags:
+      - Warehouses
+      operationId: GetViewAll
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /warehouse/update/10:
+    put:
+      summary: UpdateById
+      tags:
+      - Warehouses
+      operationId: PutUpdateById
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateByIdRequest1'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /warehouse/remove/11:
+    delete:
+      summary: DeleteById
+      tags:
+      - Warehouses
+      operationId: DeleteById1
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /store/create:
+    post:
+      summary: Create
+      tags:
+      - Stores
+      operationId: PostCreate1
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateRequest2'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /store/viewall:
+    get:
+      summary: View All
+      tags:
+      - Stores
+      operationId: GetViewAll1
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /store/update/10:
+    put:
+      summary: UpdateById
+      tags:
+      - Stores
+      operationId: PutUpdateById1
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateByIdRequest1'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /store/remove/11:
+    delete:
+      summary: DeleteById
+      tags:
+      - Stores
+      operationId: DeleteById2
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /supply/all:
+    get:
+      summary: Lihat Daftar Supply ke Warehouse
+      tags:
+      - supply
+      operationId: LihatDaftarSupplykeWarehouse
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /supply/create/3@1:
+    post:
+      summary: Supply Ke Warehouse
+      tags:
+      - supply
+      operationId: SupplyKeWarehouse
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/SupplyKeWarehouseRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /whtowh/all:
+    get:
+      summary: Lihat Daftar Transfer antar Warehouse
+      tags:
+      - transfer between warehouse
+      operationId: LihatDaftarTransferantarWarehouse
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /whtowh/create/3@5/1:
+    post:
+      summary: Transfer Warehouse To Warehouse
+      tags:
+      - transfer between warehouse
+      operationId: TransferWarehouseToWarehouse
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/TransferWarehouseToWarehouseRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /whtostr/all:
+    get:
+      summary: Lihat Daftar Delivery To Store
+      tags:
+      - Delivery To Store
+      operationId: LihatDaftarDeliveryToStore
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /whtostr/create/3@5/1:
+    post:
+      summary: Delivery To Store
+      tags:
+      - Delivery To Store
+      operationId: DeliveryToStore
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/DeliveryToStoreRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /warehouse-inventory/viewAll:
+    get:
+      summary: Lihat Semua Inventory Warehouse
+      tags:
+      - View
+      operationId: LihatSemuaInventoryWarehouse
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /store-inventory/viewall:
+    get:
+      summary: Lihat semua Inventory Store
+      tags:
+      - View
+      operationId: LihatsemuaInventoryStore
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /warehouse-inventory/viewbygoodid/4:
+    get:
+      summary: Lihat Inventory Warehouse By Goods Id
+      tags:
+      - View
+      operationId: LihatInventoryWarehouseByGoodsId
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /warehouse-inventory/viewbywarehouseid/2:
+    get:
+      summary: Lihat inventory warehouse by warehouse id
+      tags:
+      - View
+      operationId: Lihatinventorywarehousebywarehouseid
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /store-inventory/viewbygoodid/4:
+    get:
+      summary: Lihat Inventory Store By Goods Id
+      tags:
+      - View
+      operationId: LihatInventoryStoreByGoodsId
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /store-inventory/viewbystoreid/1:
+    get:
+      summary: Lihat inventory Store by Store Id
+      tags:
+      - View
+      operationId: LihatinventoryStorebyStoreId
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /alltrans/viewAll:
+    get:
+      summary: View All Transaction
+      tags:
+      - View
+      operationId: ViewAllTransaction
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+definitions:
+  CreateRequest:
+    title: CreateRequest
+    example:
+      nameGood: Gelas
+      descGood: Ini Gelas
+    type: object
+    properties:
+      nameGood:
+        type: string
+      descGood:
+        type: string
+    required:
+    - nameGood
+    - descGood
+  UpdateByIdRequest:
+    title: UpdateByIdRequest
+    example:
+      nameGood: Gelas
+      descGood: Ini Gelas Update 1
+    type: object
+    properties:
+      nameGood:
+        type: string
+      descGood:
+        type: string
+    required:
+    - nameGood
+    - descGood
+  CreateRequest1:
+    title: CreateRequest1
+    example:
+      nameWarehouse: Nama Warehouse
+      addressWarehouse: Alamat Warehouse
+      phoneNumberWarehouse: '080128092'
+      warehouseCode: null
+    type: object
+    properties:
+      nameWarehouse:
+        type: string
+      addressWarehouse:
+        type: string
+      phoneNumberWarehouse:
+        type: string
+      warehouseCode:
+        type: string
+    required:
+    - nameWarehouse
+    - addressWarehouse
+    - phoneNumberWarehouse
+    - warehouseCode
+  UpdateByIdRequest1:
+    title: UpdateByIdRequest1
+    example:
+      nameWarehouse: Ini Update Warehouse
+      addressWarehouse: Ini Update Warehouse Deskripsi
+      phoneNumberWarehouse: '08080808'
+    type: object
+    properties:
+      nameWarehouse:
+        type: string
+      addressWarehouse:
+        type: string
+      phoneNumberWarehouse:
+        type: string
+    required:
+    - nameWarehouse
+    - addressWarehouse
+    - phoneNumberWarehouse
+  CreateRequest2:
+    title: CreateRequest2
+    example:
+      nameStore: Nama Store
+      addressStore: Alamat Store
+      emailStore: Email Store
+      phoneNumberStore: '080128092'
+    type: object
+    properties:
+      nameStore:
+        type: string
+      addressStore:
+        type: string
+      emailStore:
+        type: string
+      phoneNumberStore:
+        type: string
+    required:
+    - nameStore
+    - addressStore
+    - emailStore
+    - phoneNumberStore
+  SupplyKeWarehouseRequest:
+    title: SupplyKeWarehouseRequest
+    example:
+      amountsGoods: 500
+    type: object
+    properties:
+      amountsGoods:
+        type: integer
+        format: int32
+    required:
+    - amountsGoods
+  TransferWarehouseToWarehouseRequest:
+    title: TransferWarehouseToWarehouseRequest
+    example:
+      amountsGoods: 200
+    type: object
+    properties:
+      amountsGoods:
+        type: integer
+        format: int32
+    required:
+    - amountsGoods
+  DeliveryToStoreRequest:
+    title: DeliveryToStoreRequest
+    example:
+      amountsGoods: 300
+    type: object
+    properties:
+      amountsGoods:
+        type: integer
+        format: int32
+    required:
+    - amountsGoods
+security: []
+tags:
+- name: Goods
+- name: Warehouses
+- name: Stores
+- name: supply
+- name: transfer between warehouse
+- name: Delivery To Store
+- name: View
