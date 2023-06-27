@@ -89,5 +89,6 @@ public class WarehouseToWarehouseService {
     public ResponseEntity<List<WarehouseToWarehouse>> viewTransfer(){
         List<WarehouseToWarehouse> viewTransfer = warehouseToWarehouseRepository.findAll();
         return new ResponseEntity<>(viewTransfer, HttpStatus.OK);
+        // ini test tambah komen
     }
 }
