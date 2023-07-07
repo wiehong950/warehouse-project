@@ -33,6 +33,11 @@ public class GoodController {
         return goodService.updateGood(goodId, good);
     }
 
+    // buat entity
+    // pelajari dto, dto adalah ketika buat entity tapi tidak disimpan di database
+    // pelajari git revert
+    // login pake jwt token
+
     @DeleteMapping("/remove/{id}")
     public void deleteGoodById(@PathVariable Long id){
         goodService.deleteGoodById(id);
